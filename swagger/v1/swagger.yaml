@@ -3,7 +3,47 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
-paths: {}
+paths:
+  "/api/libraries/{library_id}/books":
+    get:
+      summary: Retrieves a list of books
+      tags:
+      - Books
+      parameters:
+      - name: library_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: books found
+          content:
+            application/json:
+              examples:
+                example_0:
+                  value:
+                  - id: 1
+                    title: Sample Book 1
+                    user_id: 123
+                  - id: 2
+                    title: Sample Book 2
+                    user_id: 456
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    user_id:
+                      type: integer
+                  required:
+                  - id
+                  - title
+        '404':
+          description: library not found
 servers:
 - url: http://localhost:3000
   variables:

@@ -78,7 +78,11 @@ gem 'rswag-ui'
 gem 'rswag'
 
 group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
   gem 'rswag-specs'
 end
+
 gem 'oj'
+gem 'active_model_serializers'
